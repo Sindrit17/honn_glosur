@@ -1,0 +1,256 @@
+- Behavioral Patterns
+  
+  - Strategy Pattern
+    - Pros
+      - Loosely Coupled
+      - Program to an interface not an implementation
+      - Composition over inheritance
+      - You can swap algorithms used inside an object at runtime.
+      - You can isolate the implementation details of an algorithm from the code that uses it.
+      - You can replace inheritance with composition.
+      - Open/Closed Principle. You can introduce new strategies without having to change the context.
+    - Cons 
+      - If you only have a couple of algorithms and they rarely change, there’s no real reason to overcomplicate the program with new classes aaces that come alnd interfong with the pattern.
+      - Clients must be aware of the differences between strategies to be able to select a proper one.
+      - A lot of modern programming languages have functional type support that lets you implement different versions of an algorithm inside a set of anonymous functions. Then you could use these functions exactly as you’d have used the strategy objects, but without bloating your code with extra classes and interfaces.
+  
+  - Chain of Responsibillity
+    - Pros
+      -  You can control the order of request handling.
+      -  Single Responsibility Principle. You can decouple classes that invoke operations from classes that perform operations.
+      -  Open/Closed Principle. You can introduce new handlers into the app without breaking the existing client code.
+   -  Cons
+      -  Some requests may end up unhandled.
+
+  - Command
+    - Pros
+      - Loosely Coupled design
+      - Supports Program to an interface not an implementation
+      - Single Responsibility Principle. You can decouple classes that invoke operations from classes that perform these operations.
+      - Open/Closed Principle. You can introduce new commands into the app without breaking existing client code.
+      - You can implement undo/redo.
+      - You can implement deferred execution of operations.
+      - You can assemble a set of simple commands into a complex one.
+    - Cons
+      - The code may become more complicated since you’re introducing a whole new layer between senders and receivers.
+
+  - Observer Pattern
+    - Pros
+      - Loosely Coupled
+      - Encapsulates what varies
+      - Single Responsibillity principle
+      - Program to an interface not an implementation
+      - Open/Closed Principle. You can introduce new subscriber classes without having to change the publisher’s code (and vice versa if there’s a publisher interface).
+      - You can establish relations between objects at runtime.
+    - Cons
+      - Subscribers are notified in random order.
+
+  - Template Method
+    - Pros
+      - You can let clients override only certain parts of a large algorithm, making them less affected by changes that happen to other parts of the algorithm.
+      - You can pull the duplicate code into a superclass.
+      - DRY principle
+      - Single Responsibility principle
+      - Program to an interface not implementation
+      - Open Closed Principle
+      - Loose Coupling
+      - Dependency Inversion Principle
+    - Cons
+      - Some clients may be limited by the provided skeleton of an algorithm.
+      - You might violate the Liskov Substitution Principle by suppressing a default step implementation via a subclass.
+      - Template methods tend to be harder to maintain the more steps they have.
+
+  - Iterator Pattern
+    - Pros
+      - Single Responsibility Principle. You can clean up the client code and the collections by extracting bulky traversal algorithms into separate classes.
+      - Open/Closed Principle. You can implement new types of collections and iterators and pass them to existing code without breaking anything.
+      - Open Closed Principle
+      - Dependency Inversion Principle
+      - You can iterate over the same collection in parallel because each iterator object contains its own iteration state.
+      - For the same reason, you can delay an iteration and continue it when needed.
+    - Cons
+      - Applying the pattern can be an overkill if your app only works with simple collections.
+      - Using an iterator may be less efficient than going through elements of some specialized collections directly.
+  
+  - State Pattern
+    - Think of Finite State Machine 
+    - Pros
+      - Single Responsibility Principle. Organize the code related to particular states into separate classes.
+      - Open/Closed Principle. Introduce new states without changing existing state classes or the context.
+      - Simplify the code of the context by eliminating bulky state machine conditionals.
+      - Loosely Coupled Design (system decoupled from state)
+      - Encapsulate what varies
+      - Program to an interface not an implementation
+      - Dependency Inversion principle
+      - Composition over inheritance
+    - Cons
+      - Applying the pattern can be overkill if a state machine has only a few states or rarely changes.
+
+  - Proxy Pattern
+    - Pros
+      - You can control the service object without clients knowing about it.
+      - You can manage the lifecycle of the service object when clients don’t care about it.
+      - The proxy works even if the service object isn’t ready or is not available.
+      - Open/Closed Principle. You can introduce new proxies without changing the service or clients.
+    - Cons
+      - The code may become more complicated since you need to introduce a lot of new classes.
+      - The response from the service might get delayed.
+
+  - Bridge pattern
+    - Pros
+      - You can create platform-independent classes and apps.
+      - The client code works with high-level abstractions. It isn’t exposed to the platform details.
+      - Open/Closed Principle. You can introduce new abstractions and implementations independently from each other.
+      - Single Responsibility Principle. You can focus on high-level logic in the abstraction and on platform details in the implementation.
+    - Cons
+      - You might make the code more complicated by applying the pattern to a highly cohesive class.
+
+  - Mediator
+    - Pros
+      - Single Responsibility Principle. You can extract the communications between various components into a single place, making it easier to comprehend and maintain.
+      - Open/Closed Principle. You can introduce new mediators without having to change the actual components.
+      - You can reduce coupling between various components of a program.
+      - You can reuse individual components more easily.
+    - Cons
+      - Over time a mediator can evolve into a God Object.
+
+  - Memento
+    - Pros
+      - You can produce snapshots of the object’s state without violating its encapsulation.
+      - You can simplify the originator’s code by letting the caretaker maintain the history of the originator’s state.
+    - Cons
+      - The app might consume lots of RAM if clients create mementos too often.
+      - Caretakers should track the originator’s lifecycle to be able to destroy obsolete mementos.
+      - Most dynamic programming languages, such as PHP, Python and JavaScript, can’t guarantee that the state within the memento stays untouched.
+
+  - Visitor
+    - Pros
+      - Open/Closed Principle. You can introduce a new behavior that can work with objects of different classes without changing these classes.
+      - Single Responsibility Principle. You can move multiple versions of the same behavior into the same class.
+      - A visitor object can accumulate some useful information while working with various objects. This might be handy when you want to traverse some complex object structure, such as an object tree, and apply the visitor to each object of this structure.
+    - Cons
+      - You need to update all visitors each time a class gets added to or removed from the element hierarchy.
+      - Visitors might lack the necessary access to the private fields and methods of the elements that they’re supposed to work with.
+
+- Structural Patterns
+  - Decerator 
+    - Pros
+      - Supports Open-Close principle
+      - Supports loose coupling
+      - Support Composition over inheritance
+      - Supports Encapsulate what varies
+      - You can extend an object’s behavior without making a new subclass.
+      - You can add or remove responsibilities from an object at runtime.
+      - You can combine several behaviors by wrapping an object into multiple decorators.
+      - Single Responsibility Principle. You can divide a monolithic class that implements many possible variants of behavior into several smaller classes.
+    - Cons
+      - It’s hard to remove a specific wrapper from the wrappers stack.
+      - It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack.
+      - The initial configuration code of layers might look pretty ugly.
+  - Adapter Pattern
+    - Pros
+      - Supports to program to an interface not an implementation
+      - Encapsulates what varies
+      - Composition over inheritance
+      -  Single Responsibility Principle. You can separate the interface or data conversion code from the primary business logic of the program.
+      -  Open/Closed Principle. You can introduce new types of adapters into the program without breaking the existing client code, as long as they work with the adapters through the client interface.
+   -  Cons
+      -  The overall complexity of the code increases because you need to introduce a set of new interfaces and classes. Sometimes it’s simpler just to change the service class so that it matches the rest of your code.
+  -  Facade
+     -  Pros
+        -   You can isolate your code from the complexity of a subsystem.
+        -   Supports Loose Coupling
+        -   Law of Demeter
+        -   Program to an interface not implementation
+        -   Open Closed Principle
+        -   Encapsulate what varies
+        -   Composition over inheritance
+     -  Cons
+        -  A facade can become a god object coupled to all classes of an app.
+
+  - Flyweight
+    - Pros
+      -  You can save lots of RAM, assuming your program has tons of similar objects.
+    - Cons
+      - You might be trading RAM over CPU cycles when some of the context data needs to be recalculated each time somebody calls a flyweight method.
+      - The code becomes much more complicated. New team members will always be wondering why the state of an entity was separated in such a way.
+
+- Creational Patterns
+  - Factory Method
+    - Pros
+      - Support Loose Coupling
+      - Support Dependency Inversion Principle
+      - Encapsulates what varies
+      - You avoid tight coupling between the creator and the concrete products.
+      - Single Responsibility Principle. You can move the product creation code into one place in the program, making the code easier to support.
+      - Open/Closed Principle. You can introduce new types of products into the program without breaking existing client code.
+    - Cons
+      - The code may become more complicated since you need to introduce a lot of new subclasses to implement the pattern. The best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes.
+      - Abstract and sub classes are coupled together
+
+  - Abstract Factory
+    - Pros
+      - Loosely coupled Design
+      - Encapsulate what varies
+      - Program to an interface not an implementation
+      - Dependency inversion principle
+      - You can be sure that the products you’re getting from a factory are compatible with each other.
+      - You avoid tight coupling between concrete products and client code.
+      - Single Responsibility Principle. You can extract the product creation code into one place, making the code easier to support.
+      - Open/Closed Principle. You can introduce new variants of products without breaking existing client code.
+    - Cons
+      - The code may become more complicated than it should be, since a lot of new interfaces and classes are introduced along with the pattern.
+
+  - Singleton Pattern
+    - Pros 
+      -  You can be sure that a class has only a single instance.
+      -  You gain a global access point to that instance.
+      -  The singleton object is initialized only when it’s requested for the first time
+   -  Cons
+      -  Violates the Single Responsibility Principle. The pattern solves two problems at the time.
+      -  The Singleton pattern can mask bad design, for instance, when the components of the program know too much about each other.
+      -  The pattern requires special treatment in a multithreaded environment so that multiple threads won’t create a singleton object several times.
+      -  It may be difficult to unit test the client code of the Singleton because many test frameworks rely on inheritance when producing mock objects. Since the constructor of the singleton class is private and overriding static methods is impossible in most languages, you will need to think of a creative way to mock the singleton. Or just don’t write the tests. Or don’t use the Singleton pattern.
+
+  - Composite pattern
+    - Pros
+      - You can work with complex tree structures more conveniently: use polymorphism and recursion to your advantage.
+      - Open/Closed Principle. You can introduce new element types into the app without breaking the existing code, which now works with the object tree.
+    - Cons
+      - It might be difficult to provide a common interface for classes whose functionality differs too much. In certain scenarios, you’d need to overgeneralize the component interface, making it harder to comprehend.
+
+  - Builder Pattern
+    - Pros
+      - You can construct objects step-by-step, defer construction steps or run steps recursively.
+      - You can reuse the same construction code when building various representations of products.
+      - Single Responsibility Principle. You can isolate complex construction code from the business logic of the product.
+      - You get an alternative to inheritance when dealing with configuration presets for complex objects.
+    - Cons
+      - The overall complexity of the code increases since the pattern requires creating multiple new classes.
+
+  - Prototyp
+    - Pros
+      - You can clone objects without coupling to their concrete classes.
+      - You can get rid of repeated initialization code in favor of cloning pre-built prototypes.
+      - You can produce complex objects more conveniently.
+    - Cons
+      - Cloning complex objects that have circular references might be very tricky.
+
+- MISC 
+  - Simple Factory
+    - Not A real pattern
+    - Pros 
+      - Encapsulate what varies
+      - Single Responsibillity principle
+      - Dependency Inversion Principle
+
+  - Dependency Injector
+    - Pros
+      - Dependency Inversion Principle
+      - Single Responsibility principle
+      - Program to an interface not an implementation
+      - easy to test
+    - Cons 
+      - Needs usually framework
+      - Overkill on small systems
+      - hard to track
